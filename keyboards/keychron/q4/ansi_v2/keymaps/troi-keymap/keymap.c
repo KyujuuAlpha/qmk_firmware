@@ -63,4 +63,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,  _______,                            _______,                            _______,  _______,  _______,  _______)
 };
 
+#ifdef RGB_MATRIX_ENABLE
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    if (host_keyboard_led_state().caps_lock) {
+        rgb_matrix_set_color_all(RGB_RED);
+    }
+    if (get_highest_layer(layer_state) == _FN3) {
+        // Function keys
+        rgb_matrix_set_color(1, RGB_WHITE);
+        rgb_matrix_set_color(2, RGB_WHITE);
+        rgb_matrix_set_color(3, RGB_WHITE);
+        rgb_matrix_set_color(4, RGB_WHITE);
+        rgb_matrix_set_color(5, RGB_WHITE);
+        rgb_matrix_set_color(6, RGB_WHITE);
+        rgb_matrix_set_color(7, RGB_WHITE);
+        rgb_matrix_set_color(8, RGB_WHITE);
+        rgb_matrix_set_color(9, RGB_WHITE);
+        rgb_matrix_set_color(10, RGB_WHITE);
+        rgb_matrix_set_color(11, RGB_WHITE);
+        rgb_matrix_set_color(12, RGB_WHITE);
+
+        // other keys
+        rgb_matrix_set_color(13, RGB_WHITE); //DEL
+        rgb_matrix_set_color(16, RGB_WHITE); //UP
+        rgb_matrix_set_color(29, RGB_WHITE); //LEFT
+        rgb_matrix_set_color(30, RGB_WHITE); //DOWN
+        rgb_matrix_set_color(31, RGB_WHITE); //RIGHT
+    }
+    return false;
+}
+
+#endif
+
 // clang-format on
