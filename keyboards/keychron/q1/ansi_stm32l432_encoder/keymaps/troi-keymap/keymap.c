@@ -75,7 +75,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (host_keyboard_led_state().caps_lock) {
-        rgb_matrix_set_color_all(RGB_TEAL);
+        rgb_matrix_set_color_all(RGB_PURPLE);
     }
     return false;
 }
